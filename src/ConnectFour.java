@@ -1,4 +1,5 @@
 /*   MonteCarlo.java   */
+import java.util.Random;
 import java.util.Scanner;
 
 enum Player {
@@ -7,6 +8,7 @@ enum Player {
 }
 
 public class ConnectFour {
+	final private Random rand = new Random();
 	final private int ROW=6;
 	final private int COLUMN=7;
 	private char[][] board = new char[ROW][COLUMN];
@@ -38,12 +40,15 @@ public class ConnectFour {
 	 * ¿ªÊ¼ÓÎÏ·
 	 */
 	public void begin(){
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
 		int index = 0;
 		game: while(true){
 			System.out.println("-------------------------------");
 			System.out.print("Drop a "+ player + " disk at column (0-6):");
-			index = sc.nextInt();
+			index = rand.nextInt(7);
+			System.out.println(index);
+//			index = sc.nextInt();
+			
 			
 			if(index>COLUMN-1 || index<0) continue;
 			int i=0;
@@ -62,7 +67,7 @@ public class ConnectFour {
 					board[i-1][index] = 'Y';
 			}
 			if(isOver(i-1,index)){
-				sc.close();
+//				sc.close();
 				return;
 				
 			}
@@ -75,7 +80,7 @@ public class ConnectFour {
 				}
 			}
 			player = null;
-			sc.close();
+//			sc.close();
 			return;
 		}
 	}

@@ -69,6 +69,8 @@ public class MonteCarlo {
 	}
 	
 	public static void main(String[] args) {
+	
+		
 		MonteCarlo monteCarlo = new MonteCarlo();
 		monteCarlo.begin();
 		monteCarlo.showResult();
